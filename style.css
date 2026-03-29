@@ -1,0 +1,190 @@
+/* ============================================================
+   1. CONFIGURAÇÕES GLOBAIS
+   ============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --vermelho-poco: #E31A13;
+    --amarelo-poco: #FFD200;
+    --verde-poco: #2E8B57;
+    --preto-noite: #1A1A1A;
+    --branco-gelo: #F4F4F4;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--vermelho-poco);
+    color: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ============================================================
+   2. HEADER (VERDE)
+   ============================================================ */
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--verde-poco);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 100;
+}
+
+.logo img { height: 70px; width: auto; }
+.nav-menu ul { display: flex; list-style: none; gap: 30px; }
+.nav-menu a { text-decoration: none; color: white; font-weight: 700; transition: 0.3s; }
+.nav-menu a:hover { color: var(--amarelo-poco); }
+
+/* ============================================================
+   3. HERO SECTION
+   ============================================================ */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 10%;
+    min-height: 70vh;
+}
+
+.hero-content { flex: 1; }
+.hero-content h1 { font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; }
+.hero-content h1 span { color: var(--amarelo-poco); }
+.hero-content p { font-size: 1.2rem; color: var(--branco-gelo); max-width: 600px; }
+
+.hero-image { flex: 1; display: flex; justify-content: flex-end; }
+.hero-image img {
+    width: 100%;
+    max-width: 450px;
+    filter: drop-shadow(10px 10px 30px rgba(0,0,0,0.4));
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* ============================================================
+   4. SEÇÃO CARDÁPIO (VERMELHO)
+   ============================================================ */
+
+.cardapio { padding: 80px 10%; }
+.titulo-secao { text-align: center; margin-bottom: 50px; }
+.titulo-secao h2 span { color: var(--amarelo-poco); }
+
+.cardapio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card-item {
+    background: white;
+    color: var(--preto-noite);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-item:hover { transform: translateY(-10px); }
+.card-img { position: relative; height: 200px; }
+.card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.preco {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--verde-poco);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 900;
+}
+
+.card-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.btn-pedir {
+    border: 2px solid var(--verde-poco);
+    color: var(--verde-poco);
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    background: none;
+    transition: 0.3s;
+}
+.btn-pedir:hover { background: var(--verde-poco); color: white; }
+
+/* ============================================================
+   5. SEÇÃO SOBRE NÓS (AMARELO)
+   ============================================================ */
+
+.sobre { 
+    padding: 100px 10%; 
+    background-color: var(--amarelo-poco); /* Cor amarela conforme pedido */
+    color: var(--preto-noite); /* Texto escuro para ler no amarelo */
+}
+
+.sobre-container { display: flex; align-items: center; gap: 80px; }
+.sobre-img img { 
+    width: 100%; 
+    border-radius: 20px; 
+    box-shadow: 20px 20px 0 var(--vermelho-poco); /* Sombra vermelha no fundo amarelo */
+}
+
+.sobre-texto h2 span { color: var(--vermelho-poco); }
+.sobre-texto p { color: #333; margin-bottom: 15px; }
+.item-dif strong { font-size: 2rem; color: var(--verde-poco); }
+
+/* ============================================================
+   6. FOOTER (VERDE)
+   ============================================================ */
+
+.footer {
+    background-color: var(--verde-poco);
+    color: white;
+    padding: 60px 10% 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col { flex: 1; min-width: 250px; }
+.footer-logo { height: 60px; margin-bottom: 20px; }
+.footer-col h3 { color: var(--amarelo-poco); margin-bottom: 20px; }
+.status { color: var(--amarelo-poco); font-weight: bold; }
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .hero { flex-direction: column; text-align: center; }
+    .hero-image { justify-content: center; margin-top: 40px; }
+    .sobre-container { flex-direction: column; text-align: center; }
+    .footer-container { flex-direction: column; text-align: center; }
+}
